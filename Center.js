@@ -51,7 +51,8 @@ document.addEventListener('mousemove', e => {
 })();
 
 // --- Backend Connection Logic ---
-const SERVER_URL = 'http://127.0.0.1:8080';
+const SERVER_URL = 'https://portfolio4-afgb.onrender.com';
+
 
 async function sendToAuth(params) {
     try {
