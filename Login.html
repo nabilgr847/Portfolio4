@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login — Nobab Bils Cyber-Vault</title>
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Orbitron:wght@400;600;700&family=Exo+2:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --void: #02030a; --deep: #040610; --panel: rgba(6,10,22,0.75);
+            --violet: #7b2fff; --cyan: #00d4ff; --text: #c8d8f0; --border-v: rgba(123,47,255,0.3);
+        }
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        body { background: var(--void); color: var(--text); font-family: 'Exo 2', sans-serif; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; cursor: none; }
+        #stars { position: fixed; inset: 0; z-index: -1; }
+        .nebula { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at 50% 50%, rgba(123,47,255,0.1) 0%, transparent 80%); }
+        #cur { position: fixed; width: 8px; height: 8px; background: var(--cyan); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); box-shadow: 0 0 15px var(--cyan); }
+        #ring { position: fixed; width: 35px; height: 35px; border: 1px solid var(--violet); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: transform 0.1s ease-out; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+        .login-box { background: var(--panel); backdrop-filter: blur(15px); border: 1px solid var(--border-v); padding: 3rem; width: 100%; max-width: 420px; border-radius: 20px; text-align: center; animation: float 6s ease-in-out infinite; box-shadow: 0 0 40px rgba(123,47,255,0.15); position: relative; }
+        .login-logo { font-family: 'UnifrakturMaguntia', cursive; font-size: 3rem; color: #fff; text-shadow: 0 0 20px var(--violet); margin-bottom: 1rem; }
+        .login-title { font-family: 'Orbitron', sans-serif; font-size: 0.9rem; letter-spacing: 4px; color: var(--cyan); margin-bottom: 2.5rem; text-transform: uppercase; }
+        .input-group { position: relative; margin-bottom: 1.5rem; text-align: left; }
+        .input-group label { font-size: 0.7rem; letter-spacing: 2px; color: var(--violet); display: block; margin-bottom: 8px; text-transform: uppercase; }
+        .input-group input { width: 100%; background: rgba(255,255,255,0.03); border: 1px solid var(--border-v); padding: 12px 15px; border-radius: 8px; color: #fff; outline: none; transition: 0.3s; }
+        .input-group input:focus { border-color: var(--cyan); box-shadow: 0 0 15px rgba(0,212,255,0.1); }
+        .btn-login { width: 100%; padding: 14px; background: transparent; border: 1px solid var(--cyan); color: var(--cyan); font-family: 'Orbitron', sans-serif; font-size: 0.8rem; letter-spacing: 3px; cursor: pointer; border-radius: 8px; transition: 0.4s; text-transform: uppercase; }
+        .btn-login:hover { background: var(--cyan); color: var(--void); box-shadow: 0 0 30px var(--cyan); }
+        .footer-links { margin-top: 1.5rem; font-size: 0.75rem; }
+        .footer-links a { color: var(--violet); text-decoration: none; margin: 0 10px; cursor: pointer; transition: 0.3s; }
+        .footer-links a:hover { color: var(--cyan); }
+    </style>
+</head>
+<body>
+
+    <canvas id="stars"></canvas>
+    <div class="nebula"></div>
+    <div id="cur"></div>
+    <div id="ring"></div>
+
+    <div class="login-box">
+        <div class="login-logo">Nobab<br>Bil<br>Debs</div>
+        <h2 class="login-title">Cyber Vault Access</h2>
+        
+        <form id="loginForm"> 
+            <div class="input-group">
+                <label>Access Identity</label>
+                <input type="email" id="email" placeholder="Enter identification..." required>
+            </div>
+            
+            <div class="input-group">
+                <label>Security Key</label>
+                <input type="password" id="password" placeholder="••••••••" required>
+            </div>
+            
+            <button type="submit" class="btn-login">Authorize Entry</button>
+        </form>
+
+        <div class="footer-links">
+            <a id="forgotBtn">Forgot Key?</a> • 
+            <a id="requestBtn">Request Access</a>
+        </div>
+    </div>
+
+    <script src="Center.js"></script>
+</body>
+</html>
